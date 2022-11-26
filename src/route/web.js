@@ -1,12 +1,12 @@
-import express from "express";
-import homeController from '../controllers/homeController'
-let router = express.Router()
+import authRoutes from "./authRoutes";
+import userRoutes from "./userRouters";
+
+
 
 const initWebRouters = app => {
-    router.get('/', homeController.getHomePage)
-
-
-    return app.use('/', router)
+    app.use('/', authRoutes)
+    app.use('/', userRoutes)
+    return app
 }
 
-module.exports = initWebRouters
+export default initWebRouters
